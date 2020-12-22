@@ -8,6 +8,8 @@ class CategoryInput{
     description: string
     @Field()
     name: string
+    @Field()
+    _id: string
 }
 
 @Resolver(Category)
