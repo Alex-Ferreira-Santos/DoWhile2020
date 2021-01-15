@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "expo": "^40.0.0",
-    "react-native-svg": "^12.1.0",
-    "react-native-svg-charts": "^5.4.0"
-  }
-}
