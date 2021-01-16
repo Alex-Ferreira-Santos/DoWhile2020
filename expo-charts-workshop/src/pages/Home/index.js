@@ -7,7 +7,7 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
 
 import CustomBarChart from '../../components/CustomBarChart/index'
-import { yourBusiness} from '../../helpers/chartData'
+import { yourBusiness, yourCompetitor} from '../../helpers/chartData'
 
 import styles from './styles';
 
@@ -53,7 +53,7 @@ function Home() {
         </View>
         <View style={styles.businessAnalyticsContainer}>
           <View style={styles.businessAnalyticsData}>
-            <Text style={styles.businessAnalyticsTitle}>Seu Negócio</Text>
+            <Text style={styles.businessAnalyticsTitle}>Seu Concorrente</Text>
             <View style={styles.businessAnalyticsValueContainer}>
               <Text style={styles.businessAnalyticsValue}>R$ 7.600,00</Text>
               <Text
@@ -66,7 +66,9 @@ function Home() {
               </Text>
             </View>
           </View>
-          <View style={styles.businessAnalyticsChart} />
+          <View onLayout={({nativeEvent: {layout: {width,height}}}) => setYourCompetitorDimensions({width, height}) } style={[styles.businessAnalyticsChart, yourCompetitorDimensions ? styles.businessAnalyticsChartWithData : styles.businessAnalyticsChartWithoutData]}>
+                <CustomBarChart chartData={yourCompetitor} chartDimensions={yourCompetitorDimensions}/>
+          </View>
         </View>
         <TouchableOpacity
           onPress={handleProductReportPress}
