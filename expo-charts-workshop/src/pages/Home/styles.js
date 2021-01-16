@@ -72,7 +72,14 @@ const styles = StyleSheet.create({
   businessAnalyticsChart: {
     flex: 1,
     alignSelf: 'stretch',
-    backgroundColor: '#ddd',
+  },
+  businessAnalyticsChartWithData:{
+    backgroundColor: 'transparent'
+  },
+  businessAnalyticsChartWithoutData:{
+    backgroundColor: '#f0f0f0',
+    justifyContent: 'center',
+    borderRadius: 8,
   },
   comparisonButtonContainer: {
     alignItems: 'center',

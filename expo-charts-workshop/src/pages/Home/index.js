@@ -47,7 +47,7 @@ function Home() {
               </Text>
             </View> 
           </View>
-          <View onLayout={({nativeEvent: {layout: {width,height}}}) => setYourBusinessDimensions({width, height}) } style={styles.businessAnalyticsChart}>
+          <View onLayout={({nativeEvent: {layout: {width,height}}}) => setYourBusinessDimensions({width, height}) } style={[styles.businessAnalyticsChart, yourBusinessDimensions ? styles.businessAnalyticsChartWithData : styles.businessAnalyticsChartWithoutData]}>
                 <CustomBarChart chartData={yourBusiness} chartDimensions={yourBusinessDimensions}/>
           </View>
         </View>
