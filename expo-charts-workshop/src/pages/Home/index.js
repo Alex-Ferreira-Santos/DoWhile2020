@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -6,9 +6,15 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 
 import { AntDesign } from '@expo/vector-icons';
 
+import CustomBarChart from '../../components/CustomBarChart/index'
+import { yourBusiness} from '../../helpers/chartData'
+
 import styles from './styles';
 
 function Home() {
+  const [yourBusinessDimensions,setYourBusinessDimensions] = useState(0)
+  const [yourCompetitorDimensions,setYourCompetitorDimensions] = useState(null)
+  const [goalsDimensions,setGoalsDimensions] = useState(null)
   const navigation = useNavigation();
 
   function handleGoalsPerformancePress() {
@@ -39,9 +45,11 @@ function Home() {
               >
                 +24%
               </Text>
-            </View>
+            </View> 
           </View>
-          <View style={styles.businessAnalyticsChart} />
+          <View onLayout={({nativeEvent: {layout: {width,height}}}) => setYourBusinessDimensions({width, height}) } style={styles.businessAnalyticsChart}>
+                <CustomBarChart chartData={yourBusiness} chartDimensions={yourBusinessDimensions}/>
+          </View>
         </View>
         <View style={styles.businessAnalyticsContainer}>
           <View style={styles.businessAnalyticsData}>

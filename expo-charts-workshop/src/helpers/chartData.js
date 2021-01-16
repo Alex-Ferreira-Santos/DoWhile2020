@@ -1,0 +1,1 @@
+export const yourBusiness = [3.5,5,2,3]
