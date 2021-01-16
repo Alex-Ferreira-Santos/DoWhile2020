@@ -52,3 +52,5 @@ export const yourCompetitor = [
         },
     },
 ]
+
+export const productReport = [150,450,50,500,250,600,350]

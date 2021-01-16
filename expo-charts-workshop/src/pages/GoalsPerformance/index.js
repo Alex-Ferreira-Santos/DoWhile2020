@@ -6,7 +6,7 @@ import CustomProgressChart from '../../components/CustomProgressChart';
 import styles from './styles';
 
 function GoalsPerformance() {
-  const [goalsDimensions,setGoalsDimensions] = useState(0)
+  const [goalsDimensions,setGoalsDimensions] = useState(null)
   return (
     <View style={styles.container}>
       <View style={styles.goalsContainer}>
@@ -16,7 +16,7 @@ function GoalsPerformance() {
             layout: {width,height}
             }
           }) => setGoalsDimensions({width, height}) }
-           style={[styles.goalsChart, goalsDimensions 
+          style={[styles.goalsChart, goalsDimensions 
            ? styles.goalsChartWithData 
            : styles.goalsChartWithoutData]
           }
@@ -31,8 +31,7 @@ function GoalsPerformance() {
               <Text style={styles.goalsChartSubtitle}>R$1050 / semana</Text>
             </View>
           )}
-
-      </View>
+        </View>
         <View style={styles.goalsDetailsContainer}>
           <View style={styles.thisMonthGoalsContainer}>
             <Text style={styles.thisMonthGoalsTitle}>Esse mês</Text>
